@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TransitionMotion } from 'react-motion';
+import { TransitionMotion, spring } from 'react-motion';
 
 export default class Blocks extends Component {
   constructor (props) {
@@ -32,49 +32,28 @@ export default class Blocks extends Component {
     let obj = {};
     this.state.items.forEach(key => {
       obj[key] = {
-        val: {
-          width: 0,
-          opacity: 0,
-          scale: 1,
-        }
+        width: '200px',
+        opacity: spring(1),
+        scale: spring(1),
       }
     });
 
     return obj;
-  }
-
-  getEnds = () => {
-    let obj = {};
-    this.state.items.forEach(key => {
-      obj[key] = {
-        val: {
-          width: 100,
-          opacity: 1,
-          scale: 1,
-        }
-      }
-    });
-
-    return obj;
-  }
-
-  willLeave = () => {
-    return {
-      val: {
-        width: 0,
-        opacity: 0,
-        scale: 100,
-      }
-    }
   }
 
   willEnter = () => {
     return {
-      val: {
-        width: 0,
-        opacity: 0,
-        scale: 1,
-      }
+      width: '200px',
+      opacity: spring(0),
+      scale: spring(0),
+    }
+  }
+  
+  willLeave = () => {
+    return {
+      width: '200px',
+      opacity: spring(0),
+      scale: spring(0)
     }
   }
 
@@ -90,13 +69,12 @@ export default class Blocks extends Component {
           <TransitionMotion
             willEnter={this.willEnter}
             willLeave={this.willLeave}
-            defaultStyles={this.getDefaults()}
-            styles={this.getEnds()}>
+            styles={this.getDefaults()}>
             {current =>
               <div className="c-blocks">
               {
                 Object.keys(current).map(key => {
-                  let {width, opacity, scale} = current[key].val;
+                  let {width, opacity, scale} = current[key];
                   let style = {
                     width,
                     opacity,

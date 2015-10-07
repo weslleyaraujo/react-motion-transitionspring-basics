@@ -60,6 +60,8 @@ export default class Blocks extends Component {
   render = () => {
     return (
         <div>
+          <h2>Quick example of React Motion</h2>
+          <p>Removing and adding itens with TransitionMotion</p>
           <div>
             Click to add itens
             <button onClick={this.handleAdd}>add</button>
@@ -96,6 +98,9 @@ export default class Blocks extends Component {
             }
 
           </TransitionMotion>
+          <hr />
+          <p>* Click on any item ro remove it</p>
+          <a href="">Check the code!</a>
           </div>
         </div>
     );

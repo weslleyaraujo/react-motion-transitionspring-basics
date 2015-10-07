@@ -1,0 +1,26 @@
+{
+  "name": "react-motion-transitionspring-basics",
+  "version": "0.0.0",
+  "description": "Quick example of a react-motion using Spring",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "watchify index.js -o dist/index.js"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify", {
+          "optional": "es7"
+        }
+      ]
+    ]
+  },
+  "keywords": [
+    "React",
+    "Motion",
+    "Spring"
+  ],
+  "author": "Weslley Araujo <weslleyaraujo20@gmail.com>",
+  "license": "MIT"
+}

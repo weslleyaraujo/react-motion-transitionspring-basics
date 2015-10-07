@@ -1,3 +1,4 @@
-let yeah;
+import React from 'react';
+import Blocks from './src/blocks';
 
-console.log('lol');
+React.render(<Blocks />, document.getElementById('app'));

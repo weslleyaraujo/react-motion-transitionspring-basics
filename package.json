@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "watchify index.js -o dist/index.js"
+    "watch": "watchify index.js -o dist/index.js -v"
   },
   "browserify": {
     "transform": [
       [
-        "babelify", {
+        "babelify",
+        {
           "optional": "es7"
         }
       ]
@@ -22,5 +23,11 @@
     "Spring"
   ],
   "author": "Weslley Araujo <weslleyaraujo20@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "babelify": "^6.3.0",
+    "browserify": "^11.2.0",
+    "react": "^0.13.3",
+    "react-motion": "^0.3.0"
+  }
 }
